@@ -1,3 +1,6 @@
+import CartWidget from "../CartWidget/CartWidget";
+
+
 const NavBar = () => {
     return(
         <nav className="navbar navbar-expand-lg col-12 navbar-light justify-content-between">
@@ -22,7 +25,7 @@ const NavBar = () => {
                                 <a className="nav-link" href="./pages/blog.html">Blog</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="./pages/contact.html">Contacto</a>
+                                <a className="nav-link"><CartWidget/></a>
                             </li>
                         </ul>
                     </div>
