@@ -1,36 +1,41 @@
 import CartWidget from "../CartWidget/CartWidget";
-
+import { Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 const NavBar = () => {
     return(
-        <nav className="navbar navbar-expand-lg col-12 navbar-light justify-content-between">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="">🎨</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="./index.html">Inicio</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./pages/about.html">Acerca</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./pages/gallery.html">Galería</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./pages/blog.html">Blog</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link"><CartWidget/></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+        <Navbar bg="dark" variant = "dark" expand = "lg">
+               <Navbar.Brand>
+                       🎨
+                </Navbar.Brand> 
+                <Navbar.Toggle/>
+                <Navbar.Collapse>
+                <Nav>
+                        <Nav.Link href="#">
+                                Inicio
+                        </Nav.Link>
+                        <Nav.Link href="#">
+                               Acerca
+                        </Nav.Link>
+                        <NavDropdown title="Galería">
+                          <NavDropdown.Item>
+                            Galería 1
+                            </NavDropdown.Item> 
+                            <NavDropdown.Item>
+                                Galería 2
+                            </NavDropdown.Item>     
+                            
+                        </NavDropdown>
+                        <Nav.Link href="#">
+                                Blog
+                        </Nav.Link>
+                        <Nav.Link href="#">
+                                <CartWidget/>
+                        </Nav.Link>
+                </Nav></Navbar.Collapse>
+            </Navbar>
+           
     )
 }
 

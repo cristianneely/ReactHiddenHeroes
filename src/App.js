@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBAr/NavBar';
 import Parent from './components/Parent/Parent';
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "@popperjs/core";
 import Counter from './components/Counter/Counter';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,11 +17,6 @@ function App() {
       <NavBar />
       <header className="App-header">
         <ItemListContainer greeting="Holi"/>
-        <button className="btn btn-primary">Botonceto</button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Parent>
-          <div>Estoy dentro del Parent en APP</div>
-        </Parent>
         <Counter/>
         <FontAwesomeIcon icon={faCoffee}/>
       </header>
