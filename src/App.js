@@ -18,7 +18,6 @@ function App() {
       <header className="App-header">
         <ItemListContainer greeting="Holi"/>
         <Counter/>
-        <FontAwesomeIcon icon={faCoffee}/>
       </header>
       
     </div>
