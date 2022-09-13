@@ -4,13 +4,14 @@ import { ItemList } from '../ItemList/ItemList';
 
 
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
 
     const [productList, setProductList] = useState([]);
   
     useEffect(() => {
   getProducts.then((response)=>{
     setProductList(response);
+    //console.log(response);
   })
   
   .catch((error)=>{console.log("error")});

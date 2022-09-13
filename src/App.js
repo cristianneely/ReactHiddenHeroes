@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 import CartWidget from './components/CartWidget/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
       <NavBar />
       <header className="App-header">
+        <ItemDetailContainer itemId={2}/>
         <ItemListContainer greeting="Holi"/>
         <Counter/>
       </header>
