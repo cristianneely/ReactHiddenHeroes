@@ -1,17 +1,29 @@
 import data from '../mockData';
 import {useEffect, useState} from 'react';
 import { ItemList } from '../ItemList/ItemList';
+import {useParams} from 'react-router-dom';
 
 
 
 const ItemListContainer = () => {
 
     const [productList, setProductList] = useState([]);
+
+    const {categoryId} = useParams();
+    console.log({categoryId});
   
     useEffect(() => {
   getProducts.then((response)=>{
-    setProductList(response);
-    //console.log(response);
+    if (categoryId === undefined || categoryId === null){
+      setProductList(response);
+    }
+    else{
+    let selectedProducts = response.filter(obj => {
+      return obj.details.categoryId == categoryId;
+    })
+  console.log(selectedProducts);
+    setProductList(selectedProducts);
+}
   })
   
   .catch((error)=>{console.log("error")});

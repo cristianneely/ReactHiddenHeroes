@@ -10,18 +10,26 @@ import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 import CartWidget from './components/CartWidget/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <header className="App-header">
-        <ItemDetailContainer itemId={2}/>
-        <ItemListContainer greeting="Holi"/>
-        <Counter/>
-      </header>
       
+      <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element= {<ItemListContainer/>}/>
+        <Route path="/category/:categoryId" element= {<ItemListContainer/>}/>
+        <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
+      </Routes>
+      </BrowserRouter>
+
+      
+      <footer>
+        Footer
+      </footer>
     </div>
   );
 }
