@@ -40,21 +40,9 @@ const ItemDetailContainer = () => {
 
     return (
         <div>
-          {(() => {
-            if (productDetailExpanded) {
-              return (
-                <div>
-                    <button onClick={expandirContraer}>Ocultar detalles</button>
-                    <ItemDetail detail = {productDetail}/>
-                </div>
-              )
-            } else {
-              return (
-                <button onClick={expandirContraer}>Mostrar detalles</button>
-              )
-            }
-          })()}
-        </div>
+        
+        <ItemDetail detail = {productDetail}/>
+    </div>
       )
 
 }

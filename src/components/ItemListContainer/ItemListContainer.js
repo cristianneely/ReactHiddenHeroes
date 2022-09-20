@@ -10,7 +10,9 @@ const ItemListContainer = () => {
     const [productList, setProductList] = useState([]);
 
     const {categoryId} = useParams();
-    console.log({categoryId});
+
+    
+    
   
     useEffect(() => {
   getProducts.then((response)=>{
@@ -21,13 +23,15 @@ const ItemListContainer = () => {
     let selectedProducts = response.filter(obj => {
       return obj.details.categoryId == categoryId;
     })
-  console.log(selectedProducts);
     setProductList(selectedProducts);
 }
   })
   
   .catch((error)=>{console.log("error")});
-   }, [])
+   
+  //let {categoryId} = useParams();
+  console.log({categoryId});
+}, [categoryId])
 
     const getProducts =  new Promise((resolve, reject) => {
             setTimeout(() => {

@@ -8,6 +8,7 @@ const data = [
       description: "Descripción del producto 1",
       categoryId: 1,
       categoryName: "Categoría1",
+      image: "http://placekitten.com/300/300"
     },
   },
   {
@@ -19,6 +20,7 @@ const data = [
       description: "Descripción del producto 2",
       categoryId: 1,
       categoryName: "Categoría1",
+      image: "http://placekitten.com/500/500"
     },
   },
   {
@@ -28,7 +30,9 @@ const data = [
     image: "http://placekitten.com/600/600",
     details: { description: "Descripción del producto 3" ,
     categoryId:2,
-    categoryName: "Categoría2"},
+    categoryName: "Categoría2",
+    image: "http://placekitten.com/600/600",
+    },
   },
 ];
 
