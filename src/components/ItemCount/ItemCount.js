@@ -1,29 +1,28 @@
 import {useState} from 'react';
 
-const ItemCount = ({setCount,count}) => {
+const ItemCount = ({setCount,count, stock}) => {
     
-    const [stock, setStock] = useState(5);
+    
     const [warning, setWarning] = useState("");
+
 
     
 
     const onAdd = () => {
-        if(stock > 0){
+        if(stock > count){
         setCount(count + 1);
-        setStock(stock - 1);
         setWarning("");
     }
     else 
-    setWarning("Producto Agotado!");
+    setWarning("No quedan más!");
     };
     const onRemove = () => {
-        if(count > 0){
+        if(count > 1){
         setCount(count - 1);
-        setStock(stock + 1);
         setWarning("");
     }
     else 
-    setWarning("No puedes tener cantidades negativas!");
+    setWarning("");
     };
 
     return(
@@ -32,7 +31,7 @@ const ItemCount = ({setCount,count}) => {
             <h3>Cantidad: {count}</h3>
             <button onClick={onAdd}>+</button>
             <button onClick={onRemove}>-</button>
-            <h4>Stock: {stock}</h4>
+            <h4>Disponibles: {stock}</h4>
         </div>
     )
 }

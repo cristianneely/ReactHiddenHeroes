@@ -24,7 +24,7 @@ const ItemListContainer = () => {
     }
     else{
     let selectedProducts = response.filter(obj => {
-      return obj.details.categoryId == categoryId;
+      return obj.categoryId == categoryId;
     })
     setProductList(selectedProducts);
 }

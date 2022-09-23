@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
             let selectedItem = response.find(obj => {
                 return obj.id == id;
               })
-            setProductDetail(selectedItem.details);
+            setProductDetail(selectedItem);
         })
 
         .catch((error)=>{console.log("error")});
