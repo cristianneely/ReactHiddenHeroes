@@ -24,6 +24,7 @@ const ItemDetail = ({detail})=>{
         <img src={detail.image} width= {'300px'}/>
         <h4>Descripción: {detail.description}</h4>
         <h4>Categoría: {detail.categoryName}</h4>
+        <h5>Precio: ${detail.price}</h5>
         <ItemCount setCount={setCount} count = {count} stock = {stock}/>
         <button onClick={()=>handleClick(detail,count)}>
         Agregar al Carrito
