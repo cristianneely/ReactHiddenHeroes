@@ -1,8 +1,8 @@
-import data from '../mockData';
 import {useEffect, useState} from 'react';
 import { ItemList } from '../ItemList/ItemList';
 import {useParams} from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
+import {getFirestore, getDocs, getDoc, collection, query, where} from 'firebase/firestore';
 
 
 
@@ -14,36 +14,50 @@ const ItemListContainer = () => {
     const {categoryId} = useParams();
 
     
-    
+     const loadList =(data)=>{
+      
+    setProductList(data);
+  
+    }
   
     useEffect(() => {
       setLoading(true);
-  getProducts.then((response)=>{
-    if (categoryId === undefined || categoryId === null){
-      setProductList(response);
-    }
-    else{
-    let selectedProducts = response.filter(obj => {
-      return obj.categoryId == categoryId;
-    })
-    setProductList(selectedProducts);
-}
+      const data = getProducts();
+     
 
-  })
   
-  .catch((error)=>{console.log("error")});
-   
-  
-  console.log(categoryId + " " + loading);
 }, [categoryId])
 
-    const getProducts =  new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(data);
-                setLoading(false);
-            }, 2000);
-        })
-   
+const getProducts = ()=>{
+
+  const db = getFirestore()
+  const querySnapshot = collection(db,'Products');
+  
+  if (categoryId === undefined || categoryId === null){
+  
+
+  
+  getDocs(querySnapshot).then((response)=>{
+    const data = response.docs.map((product)=>{
+      return {id:product.id,...product.data()}
+    })
+    loadList(data);
+    setLoading(false);
+  })
+  .catch((err)=>console.log(err));
+}
+else{
+  const queryFilter = query(querySnapshot, where('categoryId','==',categoryId));
+  getDocs(queryFilter).then((response)=>{
+    const data = response.docs.map((product)=>{
+      return {id:product.id,...product.data()}
+    })
+    loadList(data);
+    setLoading(false);
+  })
+  .catch((err)=>console.log(err));
+}
+};
   
     return (
     <>

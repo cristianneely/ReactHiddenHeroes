@@ -12,6 +12,7 @@ const ItemDetail = ({detail})=>{
 
     let navigate = useNavigate();
     function handleClick(detail, count){
+        console.log(detail);
         addToCart(detail,count);
        // navigate('/cart/');
     }
@@ -25,6 +26,7 @@ const ItemDetail = ({detail})=>{
         <h4>Descripción: {detail.description}</h4>
         <h4>Categoría: {detail.categoryName}</h4>
         <h5>Precio: ${detail.price}</h5>
+        <h5>Id Producto: {detail.id}</h5>
         <ItemCount setCount={setCount} count = {count} stock = {stock}/>
         <button onClick={()=>handleClick(detail,count)}>
         Agregar al Carrito

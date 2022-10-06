@@ -1,8 +1,8 @@
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {useEffect, useState} from 'react';
-import data from '../mockData';
 import {useParams} from 'react-router-dom';
 import { Loader } from '../Loader/Loader';
+import {getFirestore, getDoc, doc} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
@@ -14,24 +14,26 @@ const ItemDetailContainer = () => {
   
     useEffect(()=>{
         setLoading(true);
-        getDetails.then((response)=>{
-            let selectedItem = response.find(obj => {
-                return obj.id == id;
-              })
-            setProductDetail(selectedItem);
-        })
-
-        .catch((error)=>{console.log("error")});
+        getDetails();
 
     },[]);
 
 
-    const getDetails = new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            resolve(data);
-            setLoading(false);
-        }, 600);
-    })
+    const getDetails =()=>{
+        const db = getFirestore();
+  const queryProduct = doc(db,'Products',id);
+
+  getDoc(queryProduct).then((response)=>{
+    const rawdata = response.data();
+    const data = {...rawdata,id};
+    console.log(data);
+    
+    setProductDetail(data);
+    setLoading(false);
+  })
+
+    }
+
 
     return (
         <div>
