@@ -9,8 +9,6 @@ export const CartProvider = ({ children }) => {
       alert("El producto ya está en el carro"+item.id);
     } else {
       setCart([...cart, { ...item, quantity }]);
-      console.log(item.id);
-      console.log([...cart, { ...item, quantity }]);
     }
   };
   const removeFromCart = (id) => {
@@ -18,7 +16,6 @@ export const CartProvider = ({ children }) => {
       return item.id !== id;
     })
     setCart(filteredCart);
-    console.log("se eliminó el producto con id "+id);
     };
   const getTotalQuantity = () => {
     let total = 0;

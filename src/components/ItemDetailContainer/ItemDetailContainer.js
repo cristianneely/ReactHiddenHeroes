@@ -26,7 +26,6 @@ const ItemDetailContainer = () => {
   getDoc(queryProduct).then((response)=>{
     const rawdata = response.data();
     const data = {...rawdata,id};
-    console.log(data);
     
     setProductDetail(data);
     setLoading(false);

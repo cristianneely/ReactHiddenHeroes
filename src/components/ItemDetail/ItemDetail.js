@@ -12,9 +12,9 @@ const ItemDetail = ({detail})=>{
 
     let navigate = useNavigate();
     function handleClick(detail, count){
-        console.log(detail);
+     
         addToCart(detail,count);
-       // navigate('/cart/');
+       
     }
 
     const onAdd = (quantity) => {

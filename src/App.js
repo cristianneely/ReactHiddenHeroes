@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBAr/NavBar';
-import "bootstrap/dist/css/bootstrap.css";
 import "@popperjs/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import { Cart } from './components/Cart/Cart';
 import {CartProvider} from './context/CartProvider';
+
 
 
 function App() {
