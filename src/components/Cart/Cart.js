@@ -29,28 +29,50 @@ export const Cart = () => {
     addDoc(query, order)
       .then((response) => {
         alert("Se creó la orden");
+        clear();
       })
       .catch(() => alert("Error"));
+
   };
 
   return (
     <div className="container">
-      <div className="row">
-        <h3>Carito de Compras</h3>
-        <h2>Precio total: {getTotalPrice()}</h2>
+      <h3>Carito de Compras</h3>
+      {!(cart.length>0) && <div className="row">
+        <div className="col-12 p-4">
+          <h4>El Carrito está vacío. Anda al Home o a alguna categoría para agregar productos al carrito!</h4>
+          </div> </div>}
+     {cart.length>0 && <div> <div className="row">
+        
+        
         {cart.map((item) => {
           return <CartItem Item={item} />;
         })}
       </div>
 
       <div className="row p-1">
-      <div className="col-3">
-        <button className="btn btn-outline-secondary rounded-0" onClick={() => clear()}>Vaciar el carrito</button>
-      </div></div>
+        <div className="col-3">
+          <button
+            className="btn btn-outline-secondary rounded-0"
+            onClick={() => clear()}
+          >
+            Vaciar el carrito
+          </button>
+        </div>
+      </div>
       <div className="row p-1">
         <div className="col-3">
-        <button className="btn btn-danger btn-lg" onClick={() => createOrder()}>Crear orden</button>
-      </div></div>
+          
+          <button
+            className="btn btn-danger btn-lg"
+            onClick={() => createOrder()}
+          >
+            Crear orden
+          </button>
+        </div>
+        <h4>Precio total: $ {getTotalPrice()}</h4>
+      </div>
+      </div>}
     </div>
   );
 };
