@@ -14,7 +14,7 @@ import {CartProvider} from './context/CartProvider';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App h-1">
       <CartProvider>
       <BrowserRouter>
       <NavBar />

@@ -35,10 +35,11 @@ const ItemDetailContainer = () => {
 
 
     return (
-        <div>
+        <div className='container d-flex p-5'>
+          <div className='row'>
         <Loader loading={loading}/>
         <ItemDetail detail = {productDetail}/>
-    </div>
+    </div></div>
       )
 
 }

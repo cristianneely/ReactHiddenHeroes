@@ -60,10 +60,10 @@ else{
 };
   
     return (
-    <>
+    <div>
       <Loader loading={loading}/>
       <ItemList lista = {productList} />
-    </>
+    </div>
   );
 };
 
